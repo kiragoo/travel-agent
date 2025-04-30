@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block title %}首页 - 旅游助手{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2 text-center">
+        <h1 class="display-4 mb-4">欢迎使用旅游助手</h1>
+        <p class="lead mb-4">你的智能旅游规划伙伴</p>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <i class="bi bi-calendar-check display-4 text-primary mb-3"></i>
+                        <h5 class="card-title">行程规划</h5>
+                        <p class="card-text">智能规划你的旅行行程，合理安排时间。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="transport-icons-container mb-3">
+                            <div class="transport-icons-row">
+                                <i class="bi bi-airplane display-4 text-primary" data-bs-toggle="tooltip" title="航空"></i>
+                                <i class="bi bi-train-front display-4 text-primary" data-bs-toggle="tooltip" title="高铁"></i>
+                            </div>
+                            <div class="transport-icons-row mt-2">
+                                <i class="bi bi-bus-front display-4 text-primary" data-bs-toggle="tooltip" title="公交"></i>
+                                <i class="bi bi-taxi-front display-4 text-primary" data-bs-toggle="tooltip" title="出租车"></i>
+                            </div>
+                            <div class="transport-icons-row mt-2">
+                                <i class="bi bi-train-freight-front display-4 text-primary" data-bs-toggle="tooltip" title="火车"></i>
+                                <i class="bi bi-car-front display-4 text-primary" data-bs-toggle="tooltip" title="私家车"></i>
+                            </div>
+                        </div>
+                        <h5 class="card-title">交通查询</h5>
+                        <p class="card-text">查询航班、火车、公交等交通信息。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="hotel-icons mb-3">
+                            <i class="bi bi-building display-4 text-primary"></i>
+                            <i class="bi bi-star-fill display-4 text-warning mx-2"></i>
+                            <i class="bi bi-house-heart display-4 text-primary"></i>
+                        </div>
+                        <h5 class="card-title">住宿预订</h5>
+                        <p class="card-text">推荐合适的住宿，提供预订建议。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <i class="bi bi-egg-fried display-4 text-primary mb-3"></i>
+                        <h5 class="card-title">美食推荐</h5>
+                        <p class="card-text">推荐当地特色美食和餐厅。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <i class="bi bi-cloud-sun display-4 text-primary mb-3"></i>
+                        <h5 class="card-title">天气查询</h5>
+                        <p class="card-text">查询目的地天气，提供出行建议。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <i class="bi bi-wallet2 display-4 text-primary mb-3"></i>
+                        <h5 class="card-title">预算管理</h5>
+                        <p class="card-text">规划旅行预算，提供省钱建议。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-5">
+            <a href="/chat" class="btn btn-primary btn-lg">
+                <i class="bi bi-chat-dots"></i> 开始聊天
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+.transport-icons-container, .hotel-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.transport-icons-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.transport-icons-row i, .hotel-icons i {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.transport-icons-row i:hover, .hotel-icons i:hover {
+    transform: scale(1.1) translateY(-5px);
+}
+
+.card:hover .transport-icons-row i {
+    animation: float 1.5s ease-in-out infinite;
+}
+
+.card:hover .hotel-icons i {
+    animation: bounce 0.5s ease infinite alternate;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-5px); }
+}
+
+/* 为不同类型的交通工具添加独特的悬停效果 */
+.bi-airplane:hover { transform: rotate(-45deg) scale(1.1); }
+.bi-train-front:hover, .bi-train-freight-front:hover { animation: train 1s linear infinite; }
+.bi-bus-front:hover { animation: drive 1s linear infinite; }
+.bi-taxi-front:hover { transform: scale(1.1) translateX(5px); }
+.bi-car-front:hover { animation: drive 1s linear infinite; }
+
+@keyframes train {
+    0% { transform: translateX(-3px); }
+    100% { transform: translateX(3px); }
+}
+
+@keyframes drive {
+    0% { transform: translateX(-2px); }
+    100% { transform: translateX(2px); }
+}
+</style>
+{% endblock %} 
